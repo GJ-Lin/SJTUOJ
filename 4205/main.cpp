@@ -3,7 +3,7 @@
 using namespace std;
 char text[105][2005];
 int lines = 1;
-
+ 
 class sLinkList
 {
 public:
@@ -12,7 +12,7 @@ public:
         head = new node;
         currentLength = 0;
     }
-
+ 
     void clear()
     {
         node *p = head->next, *q;
@@ -25,7 +25,7 @@ public:
         }
         currentLength = 0;
     }
-
+ 
     void ins()
     {
         int year;
@@ -41,7 +41,7 @@ public:
         ++currentLength;
         delete tmp;
     }
-
+ 
     void del()
     {
         int i;
@@ -54,7 +54,7 @@ public:
         delete delp;
         --currentLength;
     }
-
+ 
     void list() const
     {
         int i;
@@ -63,25 +63,25 @@ public:
         node *p = move(i);
         cout << p->year << ' ' << p->name << endl;
     }
-
+ 
     ~sLinkList()
     {
         clear();
         delete head;
     }
-
+ 
 private:
     struct node
     {
         int year;
         string name;
         node *next;
-
+ 
         node(const int &y, const string &m, node *n = NULL) : year(y), name(m), next(n) {}
         node() : next(NULL) {}
         ~node() {}
     };
-
+ 
     node *head;
     int currentLength;
     node *move(int i) const
@@ -90,7 +90,7 @@ private:
         while (i-- >= 0) p = p->next;
         return p;
     }
-
+ 
     int compare(node *a, node *b)
     {
         if (a->year < b->year)
@@ -107,7 +107,7 @@ private:
         }
     }
 };
-
+ 
 int main()
 {
     int N;
@@ -124,6 +124,6 @@ int main()
         case 'l': winner.list(); break;
         }
     }
-
+ 
     return 0;
 }
